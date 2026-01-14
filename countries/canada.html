@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects</title>
+
+  <!-- MAIN STYLES -->
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f5f7fa;
+    }
+
+    /* SIDEBAR */
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: -250px;
+      width: 250px;
+      height: 100%;
+      background: #03045e;
+      color: white;
+      padding-top: 60px;
+      transition: 0.3s;
+      z-index: 1000;
+    }
+
+    .sidebar.active {
+      left: 0;
+    }
+
+    .sidebar a {
+      display: block;
+      color: white;
+      padding: 15px 25px;
+      text-decoration: none;
+    }
+
+    .sidebar a:hover {
+      background-color: #0077b6;
+    }
+
+    /* MENU BUTTON */
+    .menu-btn {
+      position: fixed;
+      top: 15px;
+      right: 20px;
+      font-size: 26px;
+      background: #03045e;
+      border: none;
+      color: white;
+      padding: 8px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      z-index: 1100;
+    }
+
+    /* MAIN CONTENT */
+    .main {
+      padding: 100px 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    h1 {
+      color: #03045e;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- SIDEBAR -->
+  <div class="sidebar" id="sidebar">
+    <a href="index.html">Home</a>
+    <a href="news.html">News</a>
+    <a href="charities.html">Charities</a>
+    <a href="related.html">Related</a>
+    <a href="projects.html">Projects</a>
+  </div>
+
+  <!-- BUTTON -->
+  <button class="menu-btn" id="menu-btn">☰</button>
+
+  <!-- CONTENT -->
+<div class="main">
+  <h1>Projects of Canada</h1>
+  <p>
+    Below are independent projects, organizations, and initiatives working to
+    address climate change through research, activism, and local action.
+  </p>
+
+  <div class="projects-grid">
+
+    <div class="project-card">
+      <h3>Indigenous Climate Action</h3>
+      <p>
+        Indigenous-led climate justice and clean energy projects.
+      </p>
+      <a href="https://www.indigenousclimateaction.com" target="_blank">Visit project</a>
+    </div>
+
+    <div class="project-card">
+      <h3>SmartICE</h3>
+      <p>
+        Sea-ice monitoring technology for Arctic communities.
+      </p>
+      <a href="https://smartice.org" target="_blank">Visit project</a>
+    </div>
+
+    <div class="project-card">
+      <h3>Pembina Institute</h3>
+      <p>
+        Research and policy work on clean energy and climate.
+      </p>
+      <a href="https://www.pembina.org" target="_blank">Visit project</a>
+    </div>
+
+  </div>
+</div>
+
+  <!-- SIDEBAR SCRIPT (WORKING) -->
+  <script>
+    const sidebar = document.getElementById("sidebar");
+    const menuBtn = document.getElementById("menu-btn");
+
+    menuBtn.addEventListener("click", function (e) {
+      e.stopPropagation();
+      sidebar.classList.toggle("active");
+    });
+
+    document.addEventListener("click", function (e) {
+      if (!sidebar.contains(e.target) && !menuBtn.contains(e.target)) {
+        sidebar.classList.remove("active");
+      }
+    });
+  </script>
+
+</body>
+</html>
