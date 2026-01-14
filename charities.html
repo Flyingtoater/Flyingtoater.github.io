@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Charities</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: #f0f4f8;
+      color: #333;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      position: fixed;
+      left: -240px;
+      top: 0;
+      width: 220px;
+      height: 100%;
+      background: linear-gradient(180deg, #03045e, #023e8a);
+      color: white;
+      padding-top: 60px;
+      display: flex;
+      flex-direction: column;
+      transition: left 0.3s ease;
+      z-index: 1000;
+      box-shadow: 2px 0 8px rgba(0,0,0,0.15);
+    }
+
+    .sidebar a {
+      color: white;
+      text-decoration: none;
+      padding: 14px 20px;
+      font-weight: 500;
+      border-left: 4px solid transparent;
+      transition: background 0.3s, border-left 0.3s;
+    }
+
+    .sidebar a:hover {
+      background: rgba(255,255,255,0.1);
+      border-left: 4px solid #00b4d8;
+    }
+
+    .sidebar a.active {
+      background: rgba(255,255,255,0.15);
+      border-left: 4px solid #90e0ef;
+    }
+
+    /* Menu Button */
+    .menu-btn {
+      position: fixed;
+      top: 15px;
+      right: 20px;
+      font-size: 26px;
+      background: #03045e;
+      border: none;
+      color: white;
+      padding: 8px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      z-index: 1100;
+      transition: background 0.3s;
+    }
+
+    .menu-btn:hover {
+      background: #0077b6;
+    }
+
+    /* Main Content */
+    main {
+      padding: 80px 40px;
+      min-height: 100vh;
+    }
+
+    h1 {
+      margin-bottom: 30px;
+      font-size: 2.2em;
+      color: #03045e;
+      text-align: center;
+    }
+
+    /* Charity Section Layout */
+    .charity-section {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 25px;
+      justify-content: center;
+    }
+
+    .charity-block {
+      flex: 1 1 300px;
+      background: white;
+      border-radius: 14px;
+      padding: 25px;
+      color: #fff;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .charity-block:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+
+    .charity-block h2 {
+      font-size: 1.4em;
+      margin-bottom: 15px;
+      font-weight: 600;
+    }
+
+    .charity-block a {
+      display: block;
+      color: white;
+      font-weight: bold;
+      text-decoration: none;
+      margin-bottom: 8px;
+      transition: opacity 0.2s;
+    }
+
+    .charity-block a:hover {
+      opacity: 0.8;
+    }
+
+    .charity-block p {
+      margin-top: 8px;
+      font-size: 0.95em;
+    }
+
+    /* Color Themes */
+    .blue {
+      background: linear-gradient(135deg, #0077b6, #0096c7);
+    }
+
+    .green {
+      background: linear-gradient(135deg, #2ecc71, #27ae60);
+    }
+
+    .yellow {
+      background: linear-gradient(135deg, #f1c40f, #f39c12);
+      color: #333;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      main { padding: 60px 20px; }
+      .charity-block { flex: 1 1 100%; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Menu Button -->
+  <button class="menu-btn" id="menu-btn">☰</button>
+
+  <!-- Sidebar -->
+  <div class="sidebar" id="sidebar">
+    <a href="index.html">Home</a>
+    <a href="news.html">News</a>
+    <a href="charities.html" class="active">Charities</a>
+    <a href="related.html">Related</a>
+    <a href="projects.html">Projects</a>
+  </div>
+
+  <!-- Main Content -->
+  <main>
+    <h1>Charities</h1>
+
+    <section class="charity-section">
+
+      <!-- Climate Policy Charities -->
+      <div class="charity-block blue">
+        <h2>Climate Policy Charities</h2>
+        <a href="https://carbon180.org/" target="_blank">Carbon180</a>
+        <a href="https://www.catf.us/" target="_blank">Clean Air Task Force</a>
+        <a href="https://climatenetwork.org/" target="_blank">Climate Action Network (CAN)</a>
+        <a href="https://www.globalwitness.org/" target="_blank">Global Witness</a>
+        <a href="https://citizensclimatelobby.org/" target="_blank">Citizens’ Climate Lobby (CCL)</a>
+      </div>
+
+      <!-- Climate Research Charities -->
+      <div class="charity-block green">
+        <h2>Climate Research Charities</h2>
+        <a href="https://carbonremovalxprize.org/" target="_blank">Carbon Removal XPrize</a>
+        <a href="https://www.energyfoundation.org/" target="_blank">Energy Foundation</a>
+        <a href="https://rmi.org/" target="_blank">RMI (Rocky Mountain Institute)</a>
+        <a href="https://www.edf.org/climate" target="_blank">EDF Climate Lab</a>
+        <a href="https://www.climateworks.org/" target="_blank">ClimateWorks Foundation</a>
+      </div>
+
+      <!-- Nature Restoration Charities -->
+      <div class="charity-block yellow">
+        <h2>Nature Restoration Charities</h2>
+        <a href="https://onetreeplanted.org/" target="_blank">One Tree Planted</a>
+        <a href="https://www.plant-for-the-planet.org/" target="_blank">Plant-for-the-Planet</a>
+        <a href="https://www.wildlifeworks.com/" target="_blank">Wildlife Works</a>
+        <a href="https://edenprojects.org/" target="_blank">Eden Reforestation Projects</a>
+        <a href="https://trees.org/" target="_blank">Trees for the Future</a>
+      </div>
+
+    </section>
+  </main>
+
+  <script>
+    const menuBtn = document.getElementById('menu-btn');
+    const sidebar = document.getElementById('sidebar');
+
+    menuBtn.addEventListener('click', () => {
+      sidebar.style.left = sidebar.style.left === '0px' ? '-240px' : '0px';
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!sidebar.contains(e.target) && !menuBtn.contains(e.target)) {
+        sidebar.style.left = '-240px';
+      }
+    });
+  </script>
+
+</body>
+</html>

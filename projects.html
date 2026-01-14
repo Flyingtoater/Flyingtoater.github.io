@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Independent Projects</title>
+<link rel="stylesheet" href="style.css" />
+
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f5f7fa;
+    overflow-x: hidden;
+  }
+
+  .sidebar {
+    position: fixed;
+    left: -240px;
+    top: 0;
+    width: 220px;
+    height: 100%;
+    background: #2c3e50;
+    color: white;
+    padding-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    transition: left 0.3s ease;
+    z-index: 1000;
+  }
+
+  .sidebar a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    font-weight: bold;
+  }
+
+  .menu-btn {
+    position: fixed;
+    top: 15px;
+    right: 20px;
+    font-size: 26px;
+    background: #03045e;
+    border: none;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    z-index: 1100;
+  }
+
+  .main {
+    padding: 100px 20px 40px;
+    text-align: center;
+  }
+
+  header {
+    font-size: 2em;
+    color: #03045e;
+    margin-bottom: 20px;
+  }
+
+  /* IMPORTANT FIX */
+  .map-container {
+    position: relative;
+    max-width: 1200px;
+    margin: auto;
+    aspect-ratio: 2 / 1;
+  }
+
+  .map-container img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    z-index: 0;
+  }
+
+  svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+
+  .country {
+    fill: rgba(33, 150, 243, 0.25);
+    stroke: #1e88e5;
+    stroke-width: 1;
+    cursor: pointer;
+  }
+
+  .country:hover {
+    fill: rgba(33, 150, 243, 0.6);
+  }
+
+  #country-name {
+    position: fixed;
+    background: rgba(0,0,0,0.75);
+    color: white;
+    padding: 6px 10px;
+    border-radius: 5px;
+    display: none;
+    pointer-events: none;
+    font-size: 0.9rem;
+    z-index: 2000;
+  }
+</style>
+</head>
+
+<body>
+
+<div class="sidebar" id="sidebar">
+  <a href="index.html">Home</a>
+  <a href="news.html">News</a>
+  <a href="charities.html">Charities</a>
+  <a href="related.html">Related</a>
+  <a href="projects.html">Projects</a>
+</div>
+
+<button class="menu-btn" id="menu-btn">☰</button>
+
+<div class="main">
+  <header>Independent Climate Projects</header>
+
+  <p style="max-width:800px;margin:auto  auto 20px;">
+    This map shows countries with independent climate initiatives, sustainability projects and the general stand the goverment has on climate change.
+    Click a country to explore projects in that region.
+  </p>
+
+  <div class="map-container">
+    <!-- MAP IMAGE -->
+    <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/BlankMap-World-2000.png" alt="World Map">
+    <!-- SVG LINKS -->
+<svg viewBox="0 0 2000 1001" class="map-svg">
+
+  <a href="countries/canada.html">
+    <rect x="270" y="130" width="300" height="130" class="country"/>
+  </a>
+
+  <a href="countries/united-states.html">
+    <rect x="240" y="260" width="230" height="120" class="country"/>
+  </a>
+
+  <a href="countries/united-kingdom.html">
+    <rect x="880" y="200" width="33" height="48" class="country"/>
+  </a>
+
+  <a href="countries/france.html">
+    <rect x="893" y="255" width="45" height="47" class="country"/>
+  </a>
+
+  <a href="countries/germany.html">
+    <rect x="940" y="230" width="40" height="43" class="country"/>
+  </a>
+
+  <a href="countries/poland.html">
+    <rect x="985" y="230" width="40" height="25" class="country"/>
+  </a>
+
+  <a href="countries/spain.html">
+    <rect x="860" y="290" width="45" height="47" class="country"/>
+  </a>
+
+  <a href="countries/turkiye.html">
+    <rect x="1050" y="300" width="90" height="40" class="country"/>
+  </a>
+
+  <a href="countries/russia.html">
+    <rect x="1050" y="120" width="600" height="130" class="country"/>
+  </a>
+
+  <a href="countries/china.html">
+    <rect x="1350" y="280" width="220" height="110" class="country"/>
+  </a>
+
+  <a href="countries/japan.html">
+    <rect x="1630" y="270" width="60" height="100" class="country"/>
+  </a>
+
+  <a href="countries/philippines.html">
+    <rect x="1590" y="450" width="60" height="90" class="country"/>
+  </a>
+
+  <a href="countries/australia.html">
+    <rect x="1550" y="680" width="200" height="120" class="country"/>
+  </a>
+
+</svg>
+  </div>
+
+
+<div id="country-name"></div>
+
+<script>
+  const sidebar = document.getElementById("sidebar");
+  const menuBtn = document.getElementById("menu-btn");
+
+  menuBtn.onclick = () => {
+    sidebar.style.left = sidebar.style.left === "0px" ? "-240px" : "0px";
+  };
+
+  const names = {
+    CA:"Canada", US:"United States", PL:"Poland", DE:"Germany",
+    FR:"France", ES:"Spain", TR:"Türkiye", RU:"Russia",
+    AU:"Australia", JP:"Japan", CN:"China", UK:"United Kingdom", PH:"Philippines"
+  };
+
+  const box = document.getElementById("country-name");
+  document.querySelectorAll(".country").forEach(c => {
+    c.onmousemove = e => {
+      box.textContent = names[c.id];
+      box.style.left = e.pageX + 10 + "px";
+      box.style.top = e.pageY - 20 + "px";
+      box.style.display = "block";
+    };
+    c.onmouseleave = () => box.style.display = "none";
+  });
+</script>
+
+</body>
+</html>

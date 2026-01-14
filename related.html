@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About & Contact</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f5f7fa;
+      color: #333;
+    }
+
+    /* Sidebar (same as other pages) */
+    .sidebar {
+      position: fixed;
+      left: -240px;
+      top: 0;
+      width: 220px;
+      height: 100%;
+      background: #2c3e50;
+      color: white;
+      padding-top: 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      transition: left 0.3s ease;
+      z-index: 1000;
+    }
+
+    .sidebar a {
+      color: white;
+      text-decoration: none;
+      padding: 10px 20px;
+      display: block;
+      font-weight: bold;
+    }
+
+    .sidebar a:hover {
+      background: #34495e;
+      border-radius: 8px;
+    }
+
+    /* Menu button */
+    .menu-btn {
+      position: fixed;
+      top: 15px;
+      right: 20px;
+      font-size: 24px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      z-index: 1100;
+      color: #fff;
+    }
+
+    /* Main Content */
+    main {
+      padding: 40px;
+      max-width: 900px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    h1 {
+      font-size: 2.2em;
+      color: #2c3e50;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      margin-top: 40px;
+      color: #2c3e50;
+    }
+
+    p {
+      font-size: 1.05em;
+      color: #555;
+    }
+
+    .contact-card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      padding: 25px;
+      margin-top: 30px;
+    }
+
+    .contact-card h3 {
+      color: #2ecc71;
+      margin-bottom: 10px;
+    }
+
+    .contact-card a {
+      color: #3498db;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .contact-card a:hover {
+      text-decoration: underline;
+    }
+
+    .note {
+      background: #fff3cd;
+      color: #856404;
+      border-left: 5px solid #ffc107;
+      padding: 15px 20px;
+      border-radius: 8px;
+      margin-top: 40px;
+      font-size: 1em;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Menu Button -->
+  <button class="menu-btn" id="menu-btn">☰</button>
+
+  <!-- Sidebar -->
+  <div class="sidebar" id="sidebar">
+    <a href="index.html">Home</a>
+    <a href="news.html">News</a>
+    <a href="charities.html">Charities</a>
+    <a href="related.html">Related</a>
+    <a href="projects.html">Projects</a>
+  </div>
+
+  <!-- Main Content -->
+  <main>
+    <h1>About This Project</h1>
+    <p>
+      This website was created as a project made to raise awereness and act as a middle man.
+      Our goal is to make it easier for people to access information, projects, and organizations that make a real difference.
+    </p>
+
+    <div class="contact-card">
+      <h3>Contact Information</h3>
+      <p>If you’d like to reach out or collaborate, feel free to contact us:</p>
+      <p>Email: <a href="mailto:climateawereness@gmail.com">climateawereness@gmail.com</a></p>
+      <p>Instagram: <a href="doesnt exist yet lol" target="_blank">doesnt exits yet lol</a></p>
+      <p>A survey for feedback: <a href="https://docs.google.com/forms/d/e/1FAIpQLSdld5iZNwt3XY8CdUsZzdPHgX9mz8GWI1cnm_-pL9SYfE2oCg/viewform?usp=publish-editor">Click here</a></p>
+    </div>
+
+    <div class="note">
+      <strong>Note:</strong> This is a <em>student-run non-profit project</em>. All content is for educational and awareness purposes only — we do not collect or distribute funds.
+    </div>
+  </main>
+
+  <script>
+    const menuBtn = document.getElementById('menu-btn');
+    const sidebar = document.getElementById('sidebar');
+
+    menuBtn.addEventListener('click', () => {
+      if (sidebar.style.left === '0px') {
+        sidebar.style.left = '-240px';
+      } else {
+        sidebar.style.left = '0px';
+      }
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!sidebar.contains(e.target) && !menuBtn.contains(e.target)) {
+        sidebar.style.left = '-240px';
+      }
+    });
+  </script>
+
+</body>
+</html>

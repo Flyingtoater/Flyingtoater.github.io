@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Climate News</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f5f7fa;
+    }
+
+    /* Sidebar (same as charities page) */
+    .sidebar {
+      position: fixed;
+      left: -240px;
+      top: 0;
+      width: 220px;
+      height: 100%;
+      background: #2c3e50;
+      color: white;
+      padding-top: 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      transition: left 0.3s ease;
+      z-index: 1000;
+    }
+
+    .sidebar a {
+      color: white;
+      text-decoration: none;
+      padding: 10px 20px;
+      display: block;
+      font-weight: bold;
+    }
+
+    .sidebar a:hover {
+      background: #34495e;
+      border-radius: 8px;
+    }
+
+    /* Menu button */
+    .menu-btn {
+      position: fixed;
+      top: 15px;
+      right: 20px;
+      font-size: 24px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      z-index: 1100;
+      color: #fff;
+    }
+
+    /* Main content */
+    main {
+      padding: 40px;
+      margin-left: 0;
+      transition: margin-left 0.3s ease;
+    }
+
+    h1 {
+      font-size: 2em;
+      color: #333;
+      margin-bottom: 30px;
+    }
+
+    /* News sections */
+    .news-section {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+
+    .news-column {
+      flex: 1 1 45%;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      padding: 20px;
+      transition: transform 0.2s ease;
+    }
+
+    .news-column:hover {
+      transform: translateY(-3px);
+    }
+
+    .news-column h2 {
+      font-size: 1.5em;
+      color: #2c3e50;
+      border-bottom: 2px solid #2ecc71;
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+    }
+
+    .news-item {
+      margin-bottom: 15px;
+      line-height: 1.6;
+    }
+
+    .news-item a {
+      color: #3498db;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .news-item a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Menu Button -->
+  <button class="menu-btn" id="menu-btn">☰</button>
+
+  <!-- Sidebar -->
+  <div class="sidebar" id="sidebar">
+    <a href="index.html">Home</a>
+    <a href="news.html">News</a>
+    <a href="charities.html">Charities</a>
+    <a href="related.html">Related</a>
+    <a href="projects.html">Projects</a>
+  </div>
+
+  <!-- Main Content -->
+  <main>
+    <h1>Climate News</h1>
+    <section class="news-section">
+      <div class="news-column">
+        <h2>General Climate News</h2>
+
+        <div class="news-item">
+          Scientists report record ocean temperatures this month — a stark sign of accelerating climate change.
+          <a href="https://www.theguardian.com/environment/climate-crisis" target="_blank">Read more</a>
+        </div>
+
+        <div class="news-item">
+          UN leaders push for stronger renewable energy commitments at this year’s global summit.
+          <a href="https://unfccc.int/news" target="_blank">Read more</a>
+        </div>
+
+        <div class="news-item">
+          New technology aims to make carbon capture more efficient and accessible for developing nations.
+          <a href="https://www.reuters.com/sustainability/climate-energy/" target="_blank">Read more</a>
+        </div>
+
+      </div>
+
+      <div class="news-column">
+        <h2>Last Week’s Highlights</h2>
+
+        <div class="news-item">
+          European cities adopt new urban greening initiatives to combat rising temperatures.
+          <a href="https://www.sciencedaily.com/news/earth_climate/climate/" target="_blank">Read more</a>
+        </div>
+
+        <div class="news-item">
+          Study finds deforestation rates have slightly decreased due to new conservation efforts.
+          <a href="https://www.theguardian.com/environment" target="_blank">Read more</a>
+        </div>
+
+        <div class="news-item">
+          Pacific island nations renew calls for global cooperation on sea-level mitigation.
+          <a href="https://unfccc.int/news" target="_blank">Read more</a>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const menuBtn = document.getElementById('menu-btn');
+    const sidebar = document.getElementById('sidebar');
+
+    menuBtn.addEventListener('click', () => {
+      if (sidebar.style.left === '0px') {
+        sidebar.style.left = '-240px';
+      } else {
+        sidebar.style.left = '0px';
+      }
+    });
+
+    // Close sidebar if clicked outside
+    document.addEventListener('click', (e) => {
+      if (!sidebar.contains(e.target) && !menuBtn.contains(e.target)) {
+        sidebar.style.left = '-240px';
+      }
+    });
+  </script>
+
+</body>
+</html>
